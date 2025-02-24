@@ -1,5 +1,5 @@
 # **Classification - Tata Steel Machine Failure Prediction**
-**capstone project**
+**Unguided capstone project**
 
 Context - In the manufacturing sector, maintaining the efficiency and reliability of machinery is critical to achieving optimal production quality and minimizing downtime. TATA Steel, a leader in the steel manufacturing industry, is constantly looking to improve its production processes by leveraging advanced data analytics and machine learning techniques. The ability to predict and prevent machine failures is crucial for minimizing production losses, reducing maintenance costs, and ensuring product quality.
 
@@ -23,7 +23,7 @@ The dataset provided in this project represents various operational parameters a
  - **Assumptions**
     - We need categorical output i.e wheather machine needs maintenance or not , binary 0 and 1.
 
-   ## **Model Summary**  
+# **Model Summary**  
 
 ## **What was our goal?**  
 - We needed a machine learning model capable of predicting **machine failures in advance** so that preventive measures could be taken.  
@@ -32,28 +32,28 @@ The dataset provided in this project represents various operational parameters a
 - **Yes**, we successfully built two models capable of predicting machine failures.  
 
 ## **What is the performance?**  
-- **Random Forest:**  
-  - Achieves a **recall of ~80%** when tuned to a threshold of **0.11247**, with a **precision of 92.2%** and an **F1 score of 85.7%**.  
-  - This means the model correctly predicts machine failures **80% of the time** and identifies negative instances correctly **92.2% of the time**.  
-  - Increasing recall further is possible, but it would come at the cost of a **significant drop in precision**.  
-  - A higher false positive rate (lower precision) could lead to **unnecessary downtime**, impacting operational efficiency.  
+- **Random Forest:**
+
+  - Achieves a **recall of ~76.7%** at **99% precision** and **F1 Score of 86.5**.
+  - Achieves a **recall of ~90%** when tuned to a threshold of **0.13094**, with a **precision of ~90%** and an **F1 score of 0.899**.   
+  - A higher false positive rate (lower precision) could also lead to **unnecessary downtime**, impacting operational efficiency.  
 
 - **XGB Classifier:**  
-  - Performs similarly, with a **precision of ~91%**, a **recall of 80%**, and an **F1 score of 85.2%** when tuned to a threshold of **0.12083**.  
-  - Its behavior is **comparable to the Random Forest model** in terms of trade-offs between recall and precision.  
+  - Performs similarly, with a **precision of ~99%**, a **recall of 76.6%**, and an **F1 score of 86.4%**
+  - Achieves a **recall of ~80%** when tuned to a threshold of **0.15502**, with a **precision of ~92%** and an **F1 score of 0.857**. 
+  - Increasing recall further is possible, but it would come at the cost of a **significant drop in precision**. 
 
 ## **Which model should we pick?**  
-- Both models perform similarly, but **Random Forest has a slight edge** in performance.  
+- Both models perform similarly, but if thresholds are tuned the recall can be increased to 90% in case of **Random Forest** on optimal precision of 90%.  
 - The choice depends on **available computational resources** and **processing power** required for deployment.  
 
 ## **How can we improve the model further?**  
 - **Hyperparameter tuning:**  
-  - We could explore a broader range of hyperparameters using advanced tuning methods, though this would be **computationally expensive**.  
+  - We could explore a broader range of hyperparameters and use larger number of optuna trials, though this would be **computationally expensive** and time consuming.  
 - **Handling class imbalance:**  
   - We could try **SMOTE (Synthetic Minority Over-sampling Technique)** for balancing the dataset, though we have already applied proper techniques in hyperparameter tuning.  
 - **Feature engineering:**  
   - The **ProductID** column could be processed by **removing letters** and replacing them with empty spaces to extract numerical patterns.  
 - **Feature selection:**  
-  - We could attempt to **remove redundant features** and retrain the model. However, this might be **time-consuming** and may not yield a **significant performance boost**.  
-
+  - We could attempt to **remove redundant features** and retrain the model. However, this may not yield a **significant performance boost**.  
 
